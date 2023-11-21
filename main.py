@@ -1,10 +1,10 @@
-!pip install dnspython
+#pip install dnspython
 
 import re
 import dns.resolver
 import pandas as pd
 
-url_string = str(input("Enter Text to autocomplete: "))
+url_string = str(input("Enter URL to CSV File: "))
 
 data = pd.read_csv(url_string)
 
@@ -77,4 +77,6 @@ def clean(data):
 data, stats = clean(data)
 print(f"\n{stats}")
 
-data.to_csv('filename.csv', index=False)
+export_name = str(input("Please enter a filename to save the cleaned email list (e.g., 'cleaned_emails.csv'):")) + ".csv"
+
+data.to_csv(export_name, index=False)
